@@ -1,16 +1,7 @@
 package com.andr7st.app;
 
-public class Circulo {
-    private String ColorFondo;
+public class Circulo extends Figura {
     private float radio;
-
-    public String getColorFondo() {
-        return ColorFondo;
-    }
-
-    public void setColorFondo(String colorFondo) {
-        ColorFondo = colorFondo;
-    }
 
     public float getRadio() {
         return radio;
