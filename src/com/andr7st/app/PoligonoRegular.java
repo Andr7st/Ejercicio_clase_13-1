@@ -2,7 +2,7 @@ package com.andr7st.app;
 
 import java.util.Scanner;
 
-public class PoligonoRegular {
+public class PoligonoRegular extends Figura {
     protected double base;
     protected double altura;
 
@@ -30,6 +30,6 @@ public class PoligonoRegular {
         System.out.print("Ingresa la base en cm: ");
         this.base = scanner.nextDouble();
 
-        scanner.close();
+        //scanner.close();
     }
 }

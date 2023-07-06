@@ -11,4 +11,12 @@ public class Figura {
     public void setColorFondo(String colorFondo) {
         ColorFondo = colorFondo;
     }
+
+    /**
+     * <>Calcular Area</>
+     * Base * Altura
+     * */
+    public double calculateArea() {
+        return 0;
+    }
 }

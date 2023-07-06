@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class Main {
 
+    static List<Figura> figuraList = new ArrayList<>();
+
     public static void main(String[] args) {
 
         boolean showMenu = true;
@@ -28,9 +30,10 @@ public class Main {
                 default: System.out.println("Selección invalida"); break;
                 case 1: { crearFigura(); } break;
                 case 2: {
-                    System.out.println(" La sumatoria total las figuras es ( areas cm )");
-                } break;
 
+                    allFiguresSummation();
+
+                } break;
                 case 0: { showMenu = false; }; break;
             }
         } while (showMenu);
@@ -64,6 +67,8 @@ public class Main {
                 circle1.loadData();
                 double totalArea = circle1.calculateArea();
                 System.out.println(" El area total es: " + totalArea);
+                figuraList.add(circle1);
+
             } break;
 
             case 2: {
@@ -72,6 +77,7 @@ public class Main {
                 Cuadrado cuadrado = new Cuadrado();
                 cuadrado.loadData();
                 System.out.println(" El area total es " + cuadrado.calculateArea() + " centimetros.");
+                figuraList.add(cuadrado);
             } break;
 
             case 3: {
@@ -80,8 +86,34 @@ public class Main {
                 Triangulo triangulo = new Triangulo();
                 triangulo.loadData();
                 System.out.println(" El area total es " + triangulo.calculateArea() + " centimetros.");
+                figuraList.add(triangulo);
             } break;
         }
-        scanner.close();
+        //- scanner.close();
     }
+
+    /**
+     * <h3>Sumatoria de todas las figuras</h3>
+     * <h2>retorna:</h2> un número 'double' con la sumatoria de todas las figuras.'
+     * */
+    public static void allFiguresSummation() {
+
+        double sumatoriaAreas = 0;
+
+        for (Figura f: figuraList) {
+            f.calculateArea();
+        }
+
+//        figuraList.forEach(item -> {
+//           sumatoriaAreas += item.calculateArea();
+//        });
+
+        //return sumatoriaAreas;
+
+      //  System.out.println(" La sumatoria total las figuras es " + allFiguresSummation() + " cm." );
+        System.out.println(" La sumatoria total las figuras es " + sumatoriaAreas + " cm." );
+
+
+    }
+
 }
