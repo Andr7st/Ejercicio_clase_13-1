@@ -1,5 +1,7 @@
 package com.andr7st.app;
 
+import java.util.Scanner;
+
 public class PoligonoRegular {
     protected double base;
     protected double altura;
@@ -18,5 +20,16 @@ public class PoligonoRegular {
 
     public void setAltura(double altura) {
         this.altura = altura;
+    }
+
+    public void loadData() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingresa la altura en cm: ");
+        this.altura = scanner.nextDouble();
+        System.out.print("Ingresa la base en cm: ");
+        this.base = scanner.nextDouble();
+
+        scanner.close();
     }
 }

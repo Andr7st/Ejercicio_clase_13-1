@@ -1,5 +1,7 @@
 package com.andr7st.app;
 
+import java.util.Scanner;
+
 public class Circulo extends Figura {
     private float radio;
 
@@ -18,5 +20,14 @@ public class Circulo extends Figura {
      * */
     public double calculateArea() {
         return (Math.PI * Math.pow(radio, 2));
+    }
+
+    public void loadData() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingresa la area del circulo en cm: ");
+        radio = (float) scanner.nextDouble();
+
+        scanner.close();
     }
 }

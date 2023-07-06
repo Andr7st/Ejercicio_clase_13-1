@@ -8,37 +8,80 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // --- Circulo
+        boolean showMenu = true;
+        do {
+            List<String> l = new ArrayList<>();
+            l.add("\n ========== MENú ========== ");
+            l.add(" ¿Qué figura deseas crear?");
+            l.add("   1. Crear una figura.");
+            l.add("   2. Mostrar la sumatoria de areas de las figuras.");
+            l.add("   0. Salir");
+            l.add(" -------------------------------- ");
 
-        Circulo circle1 = new Circulo();
-        circle1.setColorFondo("green");
-        circle1.setRadio(5);
-        double totalArea = circle1.calculateArea();
-        
-        Circulo circle2 = new Circulo();
-        circle2.setColorFondo("blue");
-        circle2.setRadio(7);
+            l.forEach(System.out::println);
 
-        totalArea += circle2.calculateArea();
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("\n  Ingresa tu opción ~$ ");
+            int respuestaUsuario = scanner.nextInt();
+
+            switch (respuestaUsuario) {
+                default: System.out.println("Selección invalida"); break;
+                case 1: { crearFigura(); } break;
+                case 2: {
+                    System.out.println(" La sumatoria total las figuras es ( areas cm )");
+                } break;
+
+                case 0: { showMenu = false; }; break;
+            }
+        } while (showMenu);
+
+    }
+
+    private static void crearFigura() {
+        List<String> l = new ArrayList<>();
+        l.add("\n -------------------------------- ");
+        l.add(" ¿Qué figura deseas crear?");
+        l.add("   1. Circulo.");
+        l.add("   2. Cuadrado.");
+        l.add("   3. Triangulo.");
+        l.add(" -------------------------------- ");
+
+        l.forEach(System.out::println);
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\n  Ingresa tu opción ~$ ");
+        int respuestaUsuario = scanner.nextInt();
 
         System.out.println();
-        System.out.println("Area del circulo 1 es " + circle1.calculateArea() + " y color " + circle1.getColorFondo() );
-        System.out.println("Area del circulo 2 es " + circle2.calculateArea() + " y color " + circle2.getColorFondo() );
-        System.out.println("La sumatoria de areas es: " + totalArea);
-        
-        
-        // --- Triangulo
-        
-        Triangulo t = new Triangulo();
-        t.setBase(10);
-        t.setAltura(15);
-        t.calculateArea();
 
-        // --- Cuadrado
-        Cuadrado c = new Cuadrado();
-        c.setBase(10);
-        c.setAltura(15);
-        c.calculateArea();
+        switch (respuestaUsuario) {
+            default: System.out.println("Selección invalida - Salir"); break;
 
+            case 1: {
+                System.out.println(" -- Opción 2: Crea Circulo -- ");
+
+                Circulo circle1 = new Circulo();
+                circle1.loadData();
+                double totalArea = circle1.calculateArea();
+                System.out.println(" El area total es: " + totalArea);
+            } break;
+
+            case 2: {
+                System.out.println(" -- Opción 2: Crea Cuadrado -- ");
+
+                Cuadrado cuadrado = new Cuadrado();
+                cuadrado.loadData();
+                System.out.println(" El area total es " + cuadrado.calculateArea() + " centimetros.");
+            } break;
+
+            case 3: {
+                System.out.println(" -- Opción 3: Crea Triangulo -- ");
+
+                Triangulo triangulo = new Triangulo();
+                triangulo.loadData();
+                System.out.println(" El area total es " + triangulo.calculateArea() + " centimetros.");
+            } break;
+        }
+        scanner.close();
     }
 }
